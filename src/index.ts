@@ -229,11 +229,11 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         }
         const _citation = buildCitation(
           parsed.reference,
-          (decision as unknown as Record<string, unknown>).title as string || parsed.reference,
+          (decision as unknown as unknown as Record<string, unknown>).title as string || parsed.reference,
           "es_dp_get_decision",
           { reference: parsed.reference },
         );
-        return textContent({ ...decision as unknown as Record<string, unknown>, _citation });
+        return textContent({ ...decision as unknown as unknown as Record<string, unknown>, _citation });
       }
 
       case "es_dp_search_guidelines": {
@@ -255,11 +255,11 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         }
         const _citation = buildCitation(
           String(parsed.id),
-          (guideline as unknown as Record<string, unknown>).title as string || `Guideline ${parsed.id}`,
+          (guideline as unknown as unknown as Record<string, unknown>).title as string || `Guideline ${parsed.id}`,
           "es_dp_get_guideline",
           { id: String(parsed.id) },
         );
-        return textContent({ ...guideline as unknown as Record<string, unknown>, _citation });
+        return textContent({ ...guideline as unknown as unknown as Record<string, unknown>, _citation });
       }
 
       case "es_dp_list_topics": {
